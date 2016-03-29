@@ -1,0 +1,12 @@
+.strike {
+    text-decoration: line-through;
+}
+.large {
+    font-size: 30px;
+}
+.red {
+    color: red;
+}
+.green {
+    color: green;
+}

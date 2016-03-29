@@ -6,7 +6,7 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
-
+	<link rel="stylesheet" href="custom.css">
 </head>
 <body class="shower list">
 
@@ -17,11 +17,12 @@
 
 	<section class="slide" id="cover">
 		<h2>Используем веб-шрифты правильно</h2>
+		<br>
 		<p>Дмитрий Рычков, Wrike</p>
 		<!--<img src="pictures/cover.jpg" alt="" class="cover">-->
 		<style>
 			#cover h2 {
-				margin: 100px 0 0;
+				margin: 120px 0 0;
 				/*color: #FFF;*/
 				text-align: center;
 				font-size: 70px;
@@ -31,7 +32,7 @@
 				text-align: center;
 				/*color: #FFF;*/
 				font-style: italic;
-				font-size: 20px;
+				font-size: 22px;
 				}
 				#cover p a {
 					color: #FFF;
@@ -40,8 +41,234 @@
 	</section>
 
 	<section class="slide">
-		<h2 class="shout shrink">@font-face</h2>
+		<h2>Проблемы с загрузкой шрифтов</h2>
+		<ul>
+			<li>загружаются медленно</li>
+			<li>блокируют отрисовку страницы</li>
+			<li>дёргаются</li>
+		</ul>
 	</section>
+
+	<section class="slide">
+		<h2>Как исправить?</h2>
+		<ul>
+			<li>сжимать</li>
+			<li>загружать асинхронно</li>
+			<li>кешировать</li>
+			<li>показывать по готовности</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">@font-face</h2>
+	</section>
+
+	<section class="slide large">
+		<h2>Форматы шрифтов</h2>
+		<ul>
+			<li>WOFF</li>
+			<li>WOFF2</li>
+			<li>TTF</li>
+			<li>EOT</li>
+			<li>SVG</li>
+		</ul>
+	</section>
+
+	<section class="slide large">
+		<h2>Форматы шрифтов</h2>
+		<ul>
+			<li><b>WOFF</b></li>
+			<li><b>WOFF2</b></li>
+		</ul>
+		<div class="double">
+			<ul>
+				<li class="red">TTF</li>
+				<li class="red">EOT</li>
+				<li class="red">SVG</li>
+			</ul>
+			<ul class="red">
+				<li>Android 4.3</li>
+				<li>IE 8</li>
+				<li>Safari 5</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Во всех современных браузерах</h2>
+		<pre>
+			<code>@font-face {</code>
+			<code>	font-family: 'Custom Font';</code>
+			<code>	font-style: normal;</code>
+			<code>	font-weight: 400;</code>
+			<code>	src: local('Open Sans'),</code>
+			<code>		 url(...) <mark>format('woff2')</mark>,</code>
+			<code>		 url(...) <mark>format('woff')</mark>;</code>
+			<code>}</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>WOFF &mdash; наше всё</h2>
+		<div class="large">Поддержка браузерами ~ <b>90%</b>
+		<div class="note">по данным <a href="http://caniuse.com/#feat=woff">caniuse.com</a></div></div>
+	</section>
+
+	<section class="slide">
+		<h2>Советы на все времена</h2>
+		<ul>
+			<li>Используйте только нужные unicode-глифы.</li>
+			<li>Используйте правильные форматы шрифтов каждого браузера.</li>
+			<li>Ставьте http-заголовки для кеширования.</li>
+			<li>Избегайте конвертирования.</li>
+			<li>Используйте GZIP.</li>
+		</ul>
+		<p style="margin-bottom: 0;">Подробнее:</p>
+		<ul style="margin-top: 0;">
+			<li>
+				<a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization?hl=ru">developers.google.com</a></li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout" style="font-size: 100px">Оптимизируем подключение<br> из Google Fonts</h2>
+	</section>
+
+	<section class="slide">
+		<h2>Open Sans</h2>
+		<ul>
+			<li>семейство serif</li>
+			<li>латинские, греческие и кириллические символы</li>
+			<li>10 начертаний</li>
+			<li>2 Мб без сжатия</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>&lt;link&gt; и @import</h2>
+		<img src="pictures/google.gif" alt="">
+	</section>
+
+	<section class="slide">
+		<h2>&lt;link&gt; и @import</h2>
+		<img src="pictures/google.png" alt="" style="max-width: 100%">
+	</section>
+
+	<section class="slide">
+		<h2>&lt;link&gt; и @import</h2>
+		<ul class="green">
+			<li>легко подключить</li>
+			<li>браузерный кеш в случае с &lt;link&gt;</li>
+			<li>оптимальный формат</li>
+		</ul>
+		<ul class="red">
+			<li>блокирующие запросы</li>
+			<li>много запросов</li>
+			<li>FOIT / FOUT</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2><a href="https://github.com/typekit/webfontloader">Web Font Loader</a></h2>
+		<ul>
+			<li>Требуется подключить скрипт ~ 5 kb (gzip)</li>
+			<li>Шрифты подключаются с помощью небольшого inline-скрипта</li>
+		</ul>
+
+	</section>
+
+	<section class="slide">
+		<h2>Web Font Loader</h2>
+		<img src="pictures/wfloader.gif" alt="" style="max-width: 100%">
+	</section>
+
+	<section class="slide">
+		<h2>Web Font Loader</h2>
+		<img src="pictures/wfloader.png" alt="" style="max-width: 100%">
+	</section>
+
+	<section class="slide">
+		<h2>Web Font Loader</h2>
+		<pre>
+			<code>&lt;html class="</code>
+			<code>	<mark>wf-opensans-n4-active</mark></code>
+			<code>	<mark>wf-opensans-n7-active</mark></code>
+			<code>	<mark>wf-active</mark> "&gt;</code>
+		</pre>
+		<pre>
+			<code><mark>.wf-active</mark> body {</code>
+			<code>	font-family: <mark>'Open Sans'</mark>, serif;</code>
+			<code>}</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Web Font Loader</h2>
+		<ul class="green">
+			<li>асинхронность</li>
+			<li>браузерный кеш</li>
+			<li>подключение из любых источников</li>
+			<li>управление отдельными начертаниями</li>
+		</ul>
+		<ul class="red">
+			<li>дополнительный запрос за скриптом</li>
+			<li>FOUT</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2><a href="https://github.com/bramstein/fontfaceobserver">Font Face Observer</a></h2>
+		<ul>
+			<li>Требуется подключить скрипт ~ 1.5 kb (gzip)</li>
+			<li>Шрифты подключаются любым способом</li>
+		</ul>
+	</section>
+
+
+	<section class="slide">
+		<h2>Font Face Observer</h2>
+		<pre>
+			<code>var font = new FontFaceObserver('My Family');</code>
+			<code> </code>
+			<code>font.load().then(function () {</code>
+			<code>  console.log(<mark>'Font is available'</mark>);</code>
+			<code>}, function () {</code>
+			<code>  console.log(<mark>'Font is not available'</mark>>);</code>
+			<code>});</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Font Face Observer</h2>
+		<ul class="green">
+			<li>асинхронность</li>
+			<li>браузерный кеш</li>
+			<li>подключение любым способом</li>
+			<li>промисы и таймауты</li>
+			<li>отсутствие FOUT / FOIT</li>
+		</ul>
+		<ul class="red">
+			<li>дополнительный запрос за скриптом</li>
+			<li>сложная конфигурация</li>
+		</ul>
+	</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
 	<section class="slide">
 		<h2>Shower key features</h2>
 		<ol>
@@ -54,14 +281,17 @@
 		</ol>
 		<p class="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>
 	</section>
+
 	<section class="slide">
 		<h2>Plain text on your slides</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
 	</section>
+
 	<section class="slide">
 		<h2>Two columns if you like</h2>
 		<p class="double">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
 	</section>
+
 	<section class="slide">
 		<h2>All kind of lists</h2>
 		<ol>
@@ -77,6 +307,7 @@
 			<li>Look, seven rows exactly!</li>
 		</ol>
 	</section>
+
 	<section class="slide">
 		<h2>Serious citations</h2>
 		<figure>
@@ -86,6 +317,7 @@
 			<figcaption>Marcus Tullius Cicero</figcaption>
 		</figure>
 	</section>
+
 	<section class="slide">
 		<h2>Code samples</h2>
 		<pre>
@@ -98,6 +330,7 @@
 			<code><mark>&lt;/head&gt;</mark></code>
 		</pre>
 	</section>
+
 	<section class="slide">
 		<h2>Even tables</h2>
 		<table>
@@ -134,53 +367,35 @@
 		</table>
 		<p>It’s good to have information organized.</p>
 	</section>
-	<section class="slide" id="picture">
-		<h2>Pictures</h2>
-		<img src="pictures/picture.jpg" alt="" class="cover">
-		<style>
-			#picture h2 {
-				color:#FFF;
-				}
-		</style>
-	</section>
+
 	<section class="slide">
 		<h2 class="shout shrink">You can even shout this way</h2>
 	</section>
-	<section class="slide">
-		<h2>Inner navigation</h2>
-		<ol>
-			<li>Lets you reveal list items one by one</li>
-			<li class="next">To keep some key points</li>
-			<li class="next">In secret from audience</li>
-			<li class="next">But it will work only once</li>
-			<li class="next">Nobody wants to see the same joke twice</li>
-		</ol>
-	</section>
-	<section class="slide grid">
-		<h2>All nicely aligned to grid</h2>
-	</section>
-	<section class="slide" id="see-more">
-		<h2 class="shout">
-			<img src="pictures/logo.svg" alt="Shower logo">
-			<a href="https://github.com/shower/shower">See more on GitHub</a>
-		</h2>
-		<style>
-			#see-more h2 {
-				font-size:100px
-				}
-			#see-more img {
-				width:0.72em;
-				height:0.72em;
-				}
-		</style>
-	</section>
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	<p class="badge">
 		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
 	</p>
+
 	<!--
 		To hide progress bar from entire presentation
 		just remove “progress” element.
 		-->
+
 	<div class="progress"></div>
 	<script src="shower/shower.min.js"></script>
 	<!-- Copyright © 2015 Yours Truly, Famous Inc. -->
