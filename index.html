@@ -207,7 +207,7 @@
 		<ul class="green">
 			<li>асинхронность</li>
 			<li>браузерный кеш</li>
-			<li>подключение из любых источников</li>
+			<li>подключение из любых источников через единый интерфейс</li>
 			<li>управление отдельными начертаниями</li>
 		</ul>
 		<ul class="red">
@@ -224,7 +224,6 @@
 		</ul>
 	</section>
 
-
 	<section class="slide">
 		<h2>Font Face Observer</h2>
 		<pre>
@@ -240,10 +239,19 @@
 
 	<section class="slide">
 		<h2>Font Face Observer</h2>
+		<pre>
+			<code><mark>.webfont-loaded</mark> body {</code>
+			<code>	font-family: 'Open Sans', serif;</code>
+			<code>}</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Font Face Observer</h2>
 		<ul class="green">
 			<li>асинхронность</li>
 			<li>браузерный кеш</li>
-			<li>подключение любым способом</li>
+			<li>подключение любым способом через единый интерфейс</li>
 			<li>промисы и таймауты</li>
 			<li>отсутствие FOUT / FOIT</li>
 		</ul>
@@ -256,123 +264,275 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
 	<section class="slide">
-		<h2>Shower key features</h2>
-		<ol>
-			<li>Built on HTML, CSS and vanilla JavaScript</li>
-			<li>Works in all modern browsers</li>
-			<li>Themes are separated from engine</li>
-			<li>Modular and extensible</li>
-			<li>Fully keyboard accessible</li>
-			<li>Printable to PDF</li>
-		</ol>
-		<p class="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>
+		<h2><a href="https://github.com/jaicab/localFont">localFont</a></h2>
+		<ul>
+			<li>Онлайн инструмент для генерации css-файла с base64 шрифтами</li>
+			<li>Подключение с помощью inline-скрипта</li>
+		</ul>
 	</section>
 
 	<section class="slide">
-		<h2>Plain text on your slides</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
-	</section>
-
-	<section class="slide">
-		<h2>Two columns if you like</h2>
-		<p class="double">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-	</section>
-
-	<section class="slide">
-		<h2>All kind of lists</h2>
-		<ol>
-			<li>Simple lists are marked with bullets</li>
-			<li>Ordered lists begin with a number</li>
-			<li>You can even nest lists one inside another
-				<ul>
-					<li>Or mix their types</li>
-					<li>But do not go too far</li>
-					<li>Otherwise audience will be bored</li>
-				</ul>
-			</li>
-			<li>Look, seven rows exactly!</li>
-		</ol>
-	</section>
-
-	<section class="slide">
-		<h2>Serious citations</h2>
-		<figure>
-			<blockquote>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-			</blockquote>
-			<figcaption>Marcus Tullius Cicero</figcaption>
-		</figure>
-	</section>
-
-	<section class="slide">
-		<h2>Code samples</h2>
+		<h2>localFont</h2>
 		<pre>
-			<code>&lt;!DOCTYPE html&gt;</code>
-			<code class="mark">&lt;html lang="en"&gt;</code>
-			<code><mark>&lt;head&gt;</mark> <span class="comment">&lt;!--Comment--&gt;</span></code>
-			<code>    &lt;title&gt;Shower&lt;/title&gt;</code>
-			<code>    &lt;meta charset="<mark class="important">UTF-8</mark>"&gt;</code>
-			<code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
-			<code><mark>&lt;/head&gt;</mark></code>
+			<code>@font-face {</code>
+			<code>	font-family: 'Open Sans';</code>
+			<code>	font-weight: 400;</code>
+			<code>	font-style: normal;</code>
+			<code>	src: url(base64...) format('woff2');</code>
+			<code>}</code>
 		</pre>
 	</section>
 
 	<section class="slide">
-		<h2>Even tables</h2>
-		<table>
-		<tr>
-			<th scope="col">Locavore</th>
-			<th>Umami</th>
-			<th>Helvetica</th>
-			<th>Vegan</th>
-		</tr>
-		<tr>
-			<th scope="row">Fingerstache</th>
-			<td>Kale</td>
-			<td>Chips</td>
-			<td>Keytar</td>
-		</tr>
-		<tr>
-			<th scope="row">Sriracha</th>
-			<td>Gluten-free</td>
-			<td>Ennui</td>
-			<td>Keffiyeh</td>
-		</tr>
-		<tr>
-			<th scope="row">Thundercats</th>
-			<td>Jean</td>
-			<td>Shorts</td>
-			<td>Biodiesel</td>
-		</tr>
-		<tr>
-			<th scope="row">Terry</th>
-			<td>Richardson</td>
-			<td>Swag</td>
-			<td>Blog</td>
-		</tr>
-		</table>
-		<p>It’s good to have information organized.</p>
+		<h2>localFont</h2>
+		<img src="pictures/localfont.png" alt="" style="max-width: 100%">
 	</section>
 
 	<section class="slide">
-		<h2 class="shout shrink">You can even shout this way</h2>
+		<h2>localFont</h2>
+		<ul class="green">
+			<li>асинхронность</li>
+			<li>глубокое кеширование</li>
+			<li>единственный сетевой запрос при первой загрузке</li>
+			<li>отсутствие FOUT / FOIT</li>
+		</ul>
+		<ul class="red">
+			<li>сложная конфигурация</li>
+			<li>вопросы производительности</li>
+			<li>трудно сбросить кеш</li>
+			<li>не используется браузерный кеш</li>
+		</ul>
 	</section>
 
--->
+
+
+
+	<section class="slide">
+		<h2><a href="http://crocodillon.com/blog/non-blocking-web-fonts-using-localstorage">Localstorage way by Dillon de Voor</a></h2>
+		<ul>
+			<li>Улучшенный вариант localFont</li>
+			<li>Упаковка шрифта с помощью npm-пакета font-store</li>
+			<li>Определение поддержки woff2</li>
+			<li>Inline-скрипт</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<img src="pictures/localstorage.png" alt="" style="max-width: 100%; max-height: 100%; position: relative; top: -50px;">
+	</section>
+
+	<section class="slide">
+		<pre>
+			<code><span class="comment">// PRE-RENDER</span></code>
+			<code>try {</code>
+			<code>	cache = window.localStorage.getItem(key);</code>
+			<code>	if (cache) {</code>
+			<code>		cache = JSON.parse(cache);</code>
+			<code>		if (cache.md5 == md5) {</code>
+			<code>		insertFont(cache.value);</code>
+			<code>	} else {</code>
+			<code>		window.localStorage.removeItem(key);</code>
+			<code>		cache = null;</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<pre>
+			<code><span class="comment">// POST-RENDER</span></code>
+			<code>if (!cache) {</code>
+			<code>window.addEventListener('load', function() {</code>
+			<code>	var request = new XMLHttpRequest(), response;</code>
+			<code>	request.open('GET', '/path/to/fonts.json', true);</code>
+			<code>	request.onload = function() {</code>
+			<code>		if (this.status == 200) {</code>
+			<code>			try {</code>
+			<code>					response = JSON.parse(this.response);</code>
+			<code>					insertFont(response.value);</code>
+			<code>					window.localStorage.setItem(...);</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Localstorage</h2>
+		<ul class="green">
+			<li>асинхронность</li>
+			<li>глубокое кеширование</li>
+			<li>единственный сетевой запрос при первой загрузке</li>
+			<li>отсутствие FOUT / FOIT</li>
+			<li>управление кешем и версиями шрифтов</li>
+		</ul>
+		<ul class="red">
+			<li>вопросы производительности</li>
+			<li>не используется браузерный кеш</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Что насчет <a href="http://dev.w3.org/csswg/css-font-loading/">Font Loading API</a>?</h2>
+		<p>Пока не стандарт, но уже скоро</p>
+	</section>
+
+	<section class="slide">
+		<h2>Итог</h2>
+		<table>
+			<tr>
+				<th>Способ</th>
+				<th>Крутость</th>
+			</tr>
+			<tr>
+				<td>Google Fonts</td>
+				<td class="large">*</td>
+			</tr>
+			<tr>
+				<td>Web Font Loader</td>
+				<td>**</td>
+			</tr>
+			<tr>
+				<td>Font Face Observer</td>
+				<td>***</td>
+			</tr>
+			<tr>
+				<td>localFont</td>
+				<td>***</td>
+			</tr>
+			<tr>
+				<td>localstorage way</td>
+				<td>***</td>
+			</tr>
+		</table>
+	</section>
+
+
+	<section class="slide">
+		<h2>Спасибо за внимание</h2>
+		<p>
+			Слайды: &nbsp; <a href="http://corsairdnb.github.io/fonts-slides/#">corsairdnb.github.io/fonts-slides</a>
+		</p>
+		<p>
+			Github: &nbsp; &nbsp; <a href="https://github.com/corsairdnb">github.com/corsairdnb</a>
+		</p>
+		<p>
+			VK:  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="http://vk.com/corsairdnb">vk.com/corsairdnb</a>
+		</p>
+	</section>
+
+
+
+
+
+
+
+
+
+
+
+
+	<!--
+        <section class="slide">
+            <h2>Shower key features</h2>
+            <ol>
+                <li>Built on HTML, CSS and vanilla JavaScript</li>
+                <li>Works in all modern browsers</li>
+                <li>Themes are separated from engine</li>
+                <li>Modular and extensible</li>
+                <li>Fully keyboard accessible</li>
+                <li>Printable to PDF</li>
+            </ol>
+            <p class="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>
+        </section>
+
+        <section class="slide">
+            <h2>Plain text on your slides</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
+        </section>
+
+        <section class="slide">
+            <h2>Two columns if you like</h2>
+            <p class="double">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+        </section>
+
+        <section class="slide">
+            <h2>All kind of lists</h2>
+            <ol>
+                <li>Simple lists are marked with bullets</li>
+                <li>Ordered lists begin with a number</li>
+                <li>You can even nest lists one inside another
+                    <ul>
+                        <li>Or mix their types</li>
+                        <li>But do not go too far</li>
+                        <li>Otherwise audience will be bored</li>
+                    </ul>
+                </li>
+                <li>Look, seven rows exactly!</li>
+            </ol>
+        </section>
+
+        <section class="slide">
+            <h2>Serious citations</h2>
+            <figure>
+                <blockquote>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+                </blockquote>
+                <figcaption>Marcus Tullius Cicero</figcaption>
+            </figure>
+        </section>
+
+        <section class="slide">
+            <h2>Code samples</h2>
+            <pre>
+                <code>&lt;!DOCTYPE html&gt;</code>
+                <code class="mark">&lt;html lang="en"&gt;</code>
+                <code><mark>&lt;head&gt;</mark> <span class="comment">&lt;!--Comment--&gt;</span></code>
+                <code>    &lt;title&gt;Shower&lt;/title&gt;</code>
+                <code>    &lt;meta charset="<mark class="important">UTF-8</mark>"&gt;</code>
+                <code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
+                <code><mark>&lt;/head&gt;</mark></code>
+            </pre>
+        </section>
+
+        <section class="slide">
+            <h2>Even tables</h2>
+            <table>
+            <tr>
+                <th scope="col">Locavore</th>
+                <th>Umami</th>
+                <th>Helvetica</th>
+                <th>Vegan</th>
+            </tr>
+            <tr>
+                <th scope="row">Fingerstache</th>
+                <td>Kale</td>
+                <td>Chips</td>
+                <td>Keytar</td>
+            </tr>
+            <tr>
+                <th scope="row">Sriracha</th>
+                <td>Gluten-free</td>
+                <td>Ennui</td>
+                <td>Keffiyeh</td>
+            </tr>
+            <tr>
+                <th scope="row">Thundercats</th>
+                <td>Jean</td>
+                <td>Shorts</td>
+                <td>Biodiesel</td>
+            </tr>
+            <tr>
+                <th scope="row">Terry</th>
+                <td>Richardson</td>
+                <td>Swag</td>
+                <td>Blog</td>
+            </tr>
+            </table>
+            <p>It’s good to have information organized.</p>
+        </section>
+
+        <section class="slide">
+            <h2 class="shout shrink">You can even shout this way</h2>
+        </section>
+
+    -->
 
 
 
