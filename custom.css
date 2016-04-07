@@ -10,3 +10,6 @@
 .green {
     color: green;
 }
+.no-number:after {
+    visibility: hidden;
+}

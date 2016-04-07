@@ -78,13 +78,26 @@
 		</style>
 	</section>
 
-	<section class="slide">
+	<!--<section class="slide">
 		<div><img src="pictures/icons/chrome.svg" width="60" height="60"></div>
 		<div><img src="pictures/icons/firefox.svg" width="60" height="60"></div>
 		<div><img src="pictures/icons/opera.svg" width="60" height="60"></div>
 		<div><img src="pictures/icons/safari.svg" width="60" height="60"></div>
 		<div><img src="pictures/icons/ie.svg" width="60" height="60"></div>
 		<div><img src="pictures/icons/edge.svg" width="60" height="60"></div>
+	</section>-->
+
+
+
+
+
+
+
+
+
+	<section class="slide">
+		<h2>Оптимизация шрифтов &ndash;</h2>
+		<p class="large">это одно из важнейших действий для улучшения производительности страницы</p>
 	</section>
 
 	<section class="slide">
@@ -97,7 +110,94 @@
 	</section>
 
 	<section class="slide">
-		<h2>Как исправить?</h2>
+		<p><b class="large">FOUT</b> &ndash; Flash Of Unstyled Text</p>
+		<p><b class="large">FOIT</b> &ndash; Flash Of Invisible Text</p>
+	</section>
+
+	<section class="slide">
+		<h2>Почему?</h2>
+	</section>
+
+	<section class="slide">
+		<p><img src="pictures/font-crp.png" alt="" width="100%"></p>
+		<p class="note"><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization?hl=ru">Ссылка на источник</a></p>
+	</section>
+
+	<section class="slide">
+		<h2>Что делает браузер:</h2>
+		<ol>
+			<li>запрашивает HTML-документ</li>
+			<li>анализирует HTML и создает модель DOM</li>
+			<li>находит ссылки на CSS и отправляет запросы</li>
+			<li>создает модель CSSOM, совмещая ее с DOM и получает модель отрисовки</li>
+			<li>определяет необходимые варианты шрифтов, отправляет запросы</li>
+			<li>отображает страницу</li>
+			<li>если шрифт ещё не доступен, браузер может не показывать текст</li>
+			<li>как только шрифт доступен, браузер показывает текст</li>
+		</ol>
+	</section>
+
+	<section class="slide">
+		<table>
+			<tr>
+				<td width="200"><img src="pictures/icons/safari.svg" width="60" height="60"></td>
+				<td style="vertical-align: top">отображает текст только после того, как шрифт загружен</td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td width="200"><img src="pictures/icons/chrome.svg" width="60" height="60">
+					<img src="pictures/icons/firefox.svg" width="60" height="60"></td>
+				<td style="vertical-align: middle">задерживают отрисовку до 3 сек, после чего используют фолбэк</td>
+			</tr>
+		</table>
+
+		<table>
+			<tr>
+				<td width="200"><img src="pictures/icons/ie.svg" width="60" height="60"></td>
+				<td style="vertical-align: top">сразу показывает текст с помощью фолбэка, и заново отображает страницу после загрузки шрифта</td>
+			</tr>
+		</table>
+	</section>
+
+	<section class="slide">
+		<h2>Как пользователь Chrome видит ваш сайт</h2>
+		<p class="large">при медленном соединении</p>
+		<p class="large">в первые 3 секунды</p>
+	</section>
+
+	<section class="slide no-number">
+		<img src="pictures/screens/yell.png" alt="" class="cover">
+	</section>
+	<section class="slide no-number">
+		<img src="pictures/screens/ali.png" alt="" class="cover">
+	</section>
+	<section class="slide no-number">
+		<img src="pictures/screens/lenta.png" alt="" class="cover">
+	</section>
+
+	<section class="slide">
+		<h2>Как пользователь Safari видит ваш сайт</h2>
+		<p class="large">при медленном соединении</p>
+		<p class="large">до тех пор, пока не загрузятся шрифты</p>
+	</section>
+
+	<section class="slide no-number">
+		<img src="pictures/screens/safari.gif" alt="" class="cover">
+	</section>
+
+	<section class="slide">
+		<h2>Очень часто текст &ndash; это главное</h2>
+		<p>ради чего пользователи приходят на ваш сайт</p>
+	</section>
+
+	<section class="slide">
+		<h2>Долгое ожидание</h2>
+		<p>может приводить пользователей в ярость, а вам приносить убытки</p>
+	</section>
+
+	<section class="slide">
+		<h2>Как оптимизировать загрузку шрифта?</h2>
 		<ul>
 			<li>сжимать</li>
 			<li>загружать асинхронно</li>
@@ -107,7 +207,8 @@
 	</section>
 
 	<section class="slide">
-		<h2 class="shout">@font-face</h2>
+		<h2>@font-face</h2>
+		<p>Это хорошо, но мало контроля</p>
 	</section>
 
 	<section class="slide large">
@@ -142,10 +243,20 @@
 	</section>
 
 	<section class="slide">
+		<h2>WOFF &mdash; наше всё</h2>
+		<div class="large">
+			Поддержка браузерами ~ <b>90%</b>
+			<div class="note">по данным <a href="http://caniuse.com/#feat=woff">caniuse.com</a></div>
+			<br>
+			<p><b>WOFF2</b> ~ 55%</p>
+		</div>
+	</section>
+
+	<section class="slide">
 		<h2>Во всех современных браузерах</h2>
 		<pre>
-			<code>@font-face {</code>
-			<code>	font-family: 'Custom Font';</code>
+			<code><b>@font-face</b> {</code>
+			<code>	font-family: 'Open Sans';</code>
 			<code>	font-style: normal;</code>
 			<code>	font-weight: 400;</code>
 			<code>	src: local('Open Sans'),</code>
@@ -153,12 +264,6 @@
 			<code>		 url(...) <mark>format('woff')</mark>;</code>
 			<code>}</code>
 		</pre>
-	</section>
-
-	<section class="slide">
-		<h2>WOFF &mdash; наше всё</h2>
-		<div class="large">Поддержка браузерами ~ <b>90%</b>
-		<div class="note">по данным <a href="http://caniuse.com/#feat=woff">caniuse.com</a></div></div>
 	</section>
 
 	<section class="slide">
@@ -176,6 +281,10 @@
 				<a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization?hl=ru">developers.google.com</a></li>
 		</ul>
 	</section>
+
+
+
+
 
 	<section class="slide">
 		<h2 class="shout" style="font-size: 100px">Оптимизируем подключение<br> из Google Fonts</h2>
@@ -312,56 +421,13 @@
 
 
 	<section class="slide">
-		<h2><a href="https://github.com/jaicab/localFont">localFont</a></h2>
+		<h2>Localstorage</h2>
 		<ul>
-			<li>Онлайн инструмент для генерации css-файла с base64 шрифтами</li>
-			<li>Подключение с помощью inline-скрипта</li>
+			<li>сервис <a href="https://github.com/jaicab/localFont">localFont</a></li>
+			<li>способ от <a href="http://crocodillon.com/blog/non-blocking-web-fonts-using-localstorage">Dillon de Voor</a></li>
 		</ul>
-	</section>
-
-	<section class="slide">
-		<h2>localFont</h2>
-		<pre>
-			<code>@font-face {</code>
-			<code>	font-family: 'Open Sans';</code>
-			<code>	font-weight: 400;</code>
-			<code>	font-style: normal;</code>
-			<code>	src: url(base64...) format('woff2');</code>
-			<code>}</code>
-		</pre>
-	</section>
-
-	<section class="slide">
-		<h2>localFont</h2>
-		<img src="pictures/localfont.png" alt="" style="max-width: 100%">
-	</section>
-
-	<section class="slide">
-		<h2>localFont</h2>
-		<ul class="green">
-			<li>асинхронность</li>
-			<li>глубокое кеширование</li>
-			<li>единственный сетевой запрос при первой загрузке</li>
-			<li>отсутствие FOUT / FOIT</li>
-		</ul>
-		<ul class="red">
-			<li>сложная конфигурация</li>
-			<li>вопросы производительности</li>
-			<li>трудно сбросить кеш</li>
-			<li>не используется браузерный кеш</li>
-		</ul>
-	</section>
-
-
-
-
-	<section class="slide">
-		<h2><a href="http://crocodillon.com/blog/non-blocking-web-fonts-using-localstorage">Localstorage way by Dillon de Voor</a></h2>
 		<ul>
-			<li>Улучшенный вариант localFont</li>
-			<li>Упаковка шрифта с помощью npm-пакета font-store</li>
-			<li>Определение поддержки woff2</li>
-			<li>Inline-скрипт</li>
+			<li>подключение с помощью inline-скрипта</li>
 		</ul>
 	</section>
 
@@ -370,37 +436,119 @@
 	</section>
 
 	<section class="slide">
+		<h2>Перед отрисовкой страницы проверяем:</h2>
+		<ol>
+			<li>поддерживается ли localstorage...</li>
+			<li>какой формат выбрать...</li>
+			<li>уже есть в кеше?</li>
+		</ol>
+		<p>Если всё OK &mdash; показываем шрифт не медля</p>
+	</section>
+
+	<section class="slide">
+		<h2>При первой загрузке страницы</h2>
+		<ol>
+			<li>проверяем доступ к localstorage...</li>
+			<li>загружаем json-файл с base64-шрифтом...</li>
+			<li>сохраняем в localstorage...</li>
+		</ol>
+		<p>Если всё OK &mdash; показываем шрифт</p>
+	</section>
+
+
+
+	<section class="slide">
+		<h2>Localstorage</h2>
 		<pre>
-			<code><span class="comment">// PRE-RENDER</span></code>
-			<code>try {</code>
-			<code>	cache = window.localStorage.getItem(key);</code>
-			<code>	if (cache) {</code>
-			<code>		cache = JSON.parse(cache);</code>
-			<code>		if (cache.md5 == md5) {</code>
-			<code>		insertFont(cache.value);</code>
-			<code>	} else {</code>
-			<code>		window.localStorage.removeItem(key);</code>
-			<code>		cache = null;</code>
+			<code><b>@font-face</b> {</code>
+			<code>	font-family: 'Open Sans';</code>
+			<code>	font-weight: 400;</code>
+			<code>	font-style: normal;</code>
+			<code>	src: <mark>url(base64...)</mark> format('woff2');</code>
+			<code>}</code>
 		</pre>
 	</section>
 
 	<section class="slide">
+		<h2>Localstorage</h2>
+		<div>
+			<p style="font-weight: 900; font-size: 25px">opensans.json</p>
+			<pre>
+				<code>{</code>
+				<code>	"md5": 		"<mark>font-hash-sum</mark>",</code>
+				<code>	"value": 	"@font-face{font-family:'Open Sans';</code>
+				<code>				<mark>src:url(base64</mark>) ...</code>
+				<code>				...</code>
+				<code>}</code>
+			</pre>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Localstorage</h2>
+		<div>
+			<p style="font-weight: 900; font-size: 25px">index.html</p>
+			<pre>
+				<code>&lt;script async&gt;</code>
+				<code>	var md5 = '<mark>font-hash-sum</mark>';</code>
+				<code>	function <mark>insertFont</mark>(value) {</code>
+                <code>		var style = document.createElement('style');</code>
+                <code>		style.innerHTML = value;</code>
+                <code>		document.head.appendChild(style);</code>
+				<code>	}</code>
+				<!--<code>&lt;/script&gt;</code>-->
+			</pre>
+		</div>
+	</section>
+
+	<section class="slide">
 		<pre>
-			<code><span class="comment">// POST-RENDER</span></code>
-			<code>if (!cache) {</code>
-			<code>window.addEventListener('load', function() {</code>
-			<code>	var request = new XMLHttpRequest(), response;</code>
-			<code>	request.open('GET', '/path/to/fonts.json', true);</code>
+			<code>var cache = window.localStorage.getItem('opensans');</code>
+			<code>if (cache) {</code>
+			<code>	<mark>insertFont(cache.value)</mark>;</code>
+			<code>}</code>
+			<code>else {</code>
+			<code>	var request = new XMLHttpRequest(), response; ...</code>
 			<code>	request.onload = function() {</code>
-			<code>		if (this.status == 200) {</code>
-			<code>			try {</code>
-			<code>					response = JSON.parse(this.response);</code>
-			<code>					insertFont(response.value);</code>
-			<code>					window.localStorage.setItem(...);</code>
+			<code>		insertFont(response.value);</code>
+			<code>		<mark>window.localStorage.setItem('opensans', response)</mark>;</code>
+			<code>	}</code>
+			<code>}</code>
 		</pre>
 	</section>
 
+	<!--<section class="slide">
+		<h2>Localstorage</h2>
+		<img src="pictures/localfont.png" alt="" style="max-width: 100%">
+	</section>-->
+
 	<section class="slide">
+		<h2>Localstorage</h2>
+		<ul class="green">
+			<li>асинхронность</li>
+			<li>кеширование</li>
+			<li>единственный сетевой запрос при первой загрузке</li>
+			<li>отсутствие FOUT / FOIT</li>
+		</ul>
+		<ul class="red">
+			<li>сложная конфигурация</li>
+			<li>вопросы производительности</li>
+			<li>не используется браузерный кеш</li>
+		</ul>
+	</section>
+
+
+	<!--<section class="slide">
+		<h2><a href="http://crocodillon.com/blog/non-blocking-web-fonts-using-localstorage">Localstorage way by Dillon de Voor</a></h2>
+		<ul>
+			<li>Улучшенный вариант localFont</li>
+			<li>Упаковка шрифта с помощью npm-пакета font-store</li>
+			<li>Определение поддержки woff2</li>
+			<li>Inline-скрипт</li>
+		</ul>
+	</section>-->
+
+	<!--<section class="slide">
 		<h2>Localstorage</h2>
 		<ul class="green">
 			<li>асинхронность</li>
@@ -414,10 +562,17 @@
 			<li>не используется браузерный кеш</li>
 		</ul>
 	</section>
+-->
+
+
+
+
+
+
 
 	<section class="slide">
 		<h2>Что насчет <a href="http://dev.w3.org/csswg/css-font-loading/">Font Loading API</a>?</h2>
-		<p>Пока не стандарт, но уже скоро</p>
+		<p>Пока не стандарт, но уже поддерживают все те же браузеры, которые поддерживают WOFF2</p>
 	</section>
 
 	<section class="slide">
@@ -425,27 +580,28 @@
 		<table>
 			<tr>
 				<th>Способ</th>
-				<th>Крутость</th>
+				<th>Удобство</th>
+				<th>Производительность</th>
 			</tr>
 			<tr>
-				<td>Google Fonts</td>
+				<td>Google Fonts &lt;link&gt;</td>
+				<td class="large">***</td>
 				<td class="large">*</td>
 			</tr>
 			<tr>
 				<td>Web Font Loader</td>
-				<td>**</td>
+				<td class="large">**</td>
+				<td class="large">**</td>
 			</tr>
 			<tr>
 				<td>Font Face Observer</td>
-				<td>***</td>
+				<td class="large">**</td>
+				<td class="large">***</td>
 			</tr>
 			<tr>
-				<td>localFont</td>
-				<td>***</td>
-			</tr>
-			<tr>
-				<td>localstorage way</td>
-				<td>***</td>
+				<td>localstorage</td>
+				<td class="large">*</td>
+				<td class="large">***</td>
 			</tr>
 		</table>
 	</section>
@@ -457,10 +613,10 @@
 			Слайды: &nbsp; <a href="http://corsairdnb.github.io/fonts-slides/#">corsairdnb.github.io/fonts-slides</a>
 		</p>
 		<p>
-			Github: &nbsp; &nbsp; <a href="https://github.com/corsairdnb">github.com/corsairdnb</a>
+			VK:  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="http://vk.com/corsairdnb">vk.com/corsairdnb</a>
 		</p>
 		<p>
-			VK:  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="http://vk.com/corsairdnb">vk.com/corsairdnb</a>
+			Wrike:  &nbsp; &nbsp; &nbsp; <a href="https://www.wrike.com">www.wrike.com</a>
 		</p>
 	</section>
 
