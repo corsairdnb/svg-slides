@@ -138,6 +138,8 @@
 	</section>
 
 	<section class="slide">
+		<h2>Браузер может не показывать текст</h2>
+		<br>
 		<table>
 			<tr>
 				<td width="200"><img src="pictures/icons/safari.svg" width="60" height="60"></td>
@@ -155,7 +157,7 @@
 		<table>
 			<tr>
 				<td width="200"><img src="pictures/icons/ie.svg" width="60" height="60"></td>
-				<td style="vertical-align: top">сразу показывает текст с помощью фолбэка, и заново отображает страницу после загрузки шрифта</td>
+				<td style="vertical-align: top; line-height: 1.2em;">сразу показывает текст с помощью фолбэка, и заново отображает страницу после загрузки шрифта</td>
 			</tr>
 		</table>
 	</section>
@@ -326,11 +328,40 @@
 
 	<section class="slide">
 		<h2><a href="https://github.com/typekit/webfontloader">Web Font Loader</a></h2>
-		<ul>
-			<li>Требуется подключить скрипт ~ 5 kb (gzip)</li>
-			<li>Шрифты подключаются с помощью небольшого inline-скрипта</li>
-		</ul>
+		<pre>
+			<code>&lt;script src="webfont.js"&gt;&lt;/script&gt;</code>
+			<code>&lt;script&gt;</code>
+			<code>	WebFont.load({</code>
+			<code>		google: {</code>
+			<code>		  families: ['Open Sans:400,700:latin']</code>
+			<code>		}</code>
+			<code>	});</code>
+			<code>&lt;/script&gt;</code>
+		</pre>
+	</section>
 
+	<section class="slide">
+		<h2>Web Font Loader</h2>
+		<p>События: loading, active, inactive</p>
+		<pre>
+			<code>&lt;html class="</code>
+			<code>	<mark>wf-opensans-n4-active</mark></code>
+			<code>	<mark>wf-opensans-n7-active</mark></code>
+			<code>	<mark>wf-active</mark></code>
+			<code>"&gt;</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Web Font Loader</h2>
+		<pre>
+			<code>body {</code>
+			<code>	font-family: serif;</code>
+			<code>}</code>
+			<code><mark>.wf-active</mark> body {</code>
+			<code>	font-family: <mark>'Open Sans'</mark>, serif;</code>
+			<code>}</code>
+		</pre>
 	</section>
 
 	<section class="slide">
@@ -340,22 +371,20 @@
 
 	<section class="slide">
 		<h2>Web Font Loader</h2>
-		<img src="pictures/wfloader.png" alt="" style="max-width: 100%">
+		<p><b>FOUT</b> при каждой загрузке страницы</p>
+		<p>Чтобы этого избежать, сохраняем состояние в куках или сессии</p>
+		<pre>
+			<code>WebFontConfig = {</code>
+			<code>	active: function() {</code>
+			<code>		<mark>sessionStorage.fonts = true</mark>;</code>
+			<code>	}</code>
+			<code>}</code>
+		</pre>
 	</section>
 
 	<section class="slide">
 		<h2>Web Font Loader</h2>
-		<pre>
-			<code>&lt;html class="</code>
-			<code>	<mark>wf-opensans-n4-active</mark></code>
-			<code>	<mark>wf-opensans-n7-active</mark></code>
-			<code>	<mark>wf-active</mark> "&gt;</code>
-		</pre>
-		<pre>
-			<code><mark>.wf-active</mark> body {</code>
-			<code>	font-family: <mark>'Open Sans'</mark>, serif;</code>
-			<code>}</code>
-		</pre>
+		<img src="pictures/wfloader.png" alt="" style="max-width: 100%">
 	</section>
 
 	<section class="slide">
@@ -364,40 +393,38 @@
 			<li>асинхронность</li>
 			<li>браузерный кеш</li>
 			<li>подключение из любых источников через единый интерфейс</li>
-			<li>управление отдельными начертаниями</li>
+			<li>управление отдельными начертаниями и фазами загрузки</li>
+			<li>таймауты</li>
 		</ul>
 		<ul class="red">
-			<li>дополнительный запрос за скриптом</li>
+			<li>дополнительный запрос за скриптом (~5 kb gzipped)</li>
 			<li>FOUT</li>
 		</ul>
 	</section>
 
 	<section class="slide">
 		<h2><a href="https://github.com/bramstein/fontfaceobserver">Font Face Observer</a></h2>
-		<ul>
-			<li>Требуется подключить скрипт ~ 1.5 kb (gzip)</li>
-			<li>Шрифты подключаются любым способом</li>
-		</ul>
-	</section>
-
-	<section class="slide">
-		<h2>Font Face Observer</h2>
 		<pre>
-			<code>var font = new FontFaceObserver('My Family');</code>
-			<code> </code>
-			<code>font.load().then(function () {</code>
-			<code>  console.log(<mark>'Font is available'</mark>);</code>
-			<code>}, function () {</code>
-			<code>  console.log(<mark>'Font is not available'</mark>>);</code>
-			<code>});</code>
+			<code>&lt;script src="fontfaceobserver.js"&gt;&lt;/script&gt;</code>
+			<code>&lt;script&gt;</code>
+			<code>	var font = new FontFaceObserver('Open Sans', {</code>
+			<code>		weight: 400</code>
+			<code>	});</code>
+			<code>	font.<mark>load()</mark>.then(function () {</code>
+			<code>		document.documentElement.classList.add(<mark>'wf-loaded'</mark>);</code>
+			<code>	});</code>
+			<code>&lt;/script&gt;</code>
 		</pre>
 	</section>
 
 	<section class="slide">
 		<h2>Font Face Observer</h2>
 		<pre>
-			<code><mark>.webfont-loaded</mark> body {</code>
-			<code>	font-family: 'Open Sans', serif;</code>
+			<code>body {</code>
+			<code>	font-family: serif;</code>
+			<code>}</code>
+			<code><mark>.wf-loaded</mark> body {</code>
+			<code>	font-family: <mark>'Open Sans'</mark>, serif;</code>
 			<code>}</code>
 		</pre>
 	</section>
@@ -417,17 +444,12 @@
 		</ul>
 	</section>
 
-
-
-
 	<section class="slide">
 		<h2>Localstorage</h2>
 		<ul>
 			<li>сервис <a href="https://github.com/jaicab/localFont">localFont</a></li>
+			<li>npm-пакет <a href="https://github.com/CrocoDillon/font-store">font-store</a></li>
 			<li>способ от <a href="http://crocodillon.com/blog/non-blocking-web-fonts-using-localstorage">Dillon de Voor</a></li>
-		</ul>
-		<ul>
-			<li>подключение с помощью inline-скрипта</li>
 		</ul>
 	</section>
 
@@ -537,39 +559,6 @@
 		</ul>
 	</section>
 
-
-	<!--<section class="slide">
-		<h2><a href="http://crocodillon.com/blog/non-blocking-web-fonts-using-localstorage">Localstorage way by Dillon de Voor</a></h2>
-		<ul>
-			<li>Улучшенный вариант localFont</li>
-			<li>Упаковка шрифта с помощью npm-пакета font-store</li>
-			<li>Определение поддержки woff2</li>
-			<li>Inline-скрипт</li>
-		</ul>
-	</section>-->
-
-	<!--<section class="slide">
-		<h2>Localstorage</h2>
-		<ul class="green">
-			<li>асинхронность</li>
-			<li>глубокое кеширование</li>
-			<li>единственный сетевой запрос при первой загрузке</li>
-			<li>отсутствие FOUT / FOIT</li>
-			<li>управление кешем и версиями шрифтов</li>
-		</ul>
-		<ul class="red">
-			<li>вопросы производительности</li>
-			<li>не используется браузерный кеш</li>
-		</ul>
-	</section>
--->
-
-
-
-
-
-
-
 	<section class="slide">
 		<h2>Что насчет <a href="http://dev.w3.org/csswg/css-font-loading/">Font Loading API</a>?</h2>
 		<p>Пока не стандарт, но уже поддерживают все те же браузеры, которые поддерживают WOFF2</p>
@@ -581,7 +570,7 @@
 			<tr>
 				<th>Способ</th>
 				<th>Удобство</th>
-				<th>Производительность</th>
+				<th>Эффективность</th>
 			</tr>
 			<tr>
 				<td>Google Fonts &lt;link&gt;</td>
