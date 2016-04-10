@@ -13,3 +13,12 @@
 .no-number:after {
     visibility: hidden;
 }
+.slide:after {
+    background-image: url(pictures/ribbon.svg);
+}
+.slide#cover:after {
+    visibility: hidden;
+}
+.slide h2 {
+    color: #2a3546;
+}

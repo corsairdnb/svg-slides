@@ -16,38 +16,33 @@
 	</header>
 
 	<section class="slide" id="cover">
-		<h2>Используем веб-шрифты правильно</h2>
-		<br>
-		<div class="wrike">
-			<div>
-				Дмитрий Рычков <br>
-				<img src="pictures/icons/wrike.svg" alt="Wrike" width="115">
-			</div>
-		</div>
+		<img src="pictures/icons/wrike.svg" alt="Wrike" width="115">
 
-		<!--<img src="pictures/cover.jpg" alt="" class="cover">-->
+		<h2>Используем<br> веб-шрифты<br> правильно</h2>
+
+		<p>
+			Дмитрий Рычков<br>
+			13/04/2016
+		</p>
+
+		<div class="slide-corner"></div>
+
 		<style>
+			#cover {
+				background: #2a3546 url(pictures/pattern_wrike.svg) no-repeat 245px 45px;
+				background-size: cover;
+				box-shadow: 0 0 0 40px #8bc53f inset;
+				color: #fff;
+			}
 			#cover h2 {
-				margin: 150px 0 0;
-				color: #011f40;
-				text-align: center;
+				margin: 50px 0;
+				color: #fff;
 				font-size: 60px;
 				position: relative;
+				font-family: 'PT Sans', sans-serif;
 			}
-			/*#cover h2:after {
-				content: '';
-				display: block;
-				background-image: linear-gradient(to right, rgba(1, 31, 64, 0), #011f40, rgba(1, 31, 64, 0));
-				width: 100%;
-				height: 1px;
-				position: absolute;
-				left: 0;
-				right: 0;
-				bottom: -20px;
-				margin: auto;
-			}*/
-			#cover p a {
-				color: #FFF;
+			#cover p {
+				line-height: 1.2em;
 			}
 			#cover .wrike {
 				position: absolute;
@@ -59,41 +54,17 @@
 				color: #fff;
 				font-size: 16px;
 			}
-			#cover .wrike div {
-				display: inline-block;
-				position: relative;
-				padding: 10px 35px;
-				background-color: #011f40;
-			}
-			#cover .wrike div:after {
-				content: '';
-				border-left: 15px solid transparent;
-				border-right: 15px solid #fff;
-				border-top: 15px solid #fff;
-				border-bottom: 15px solid transparent;
+			#cover .slide-corner {
+				border-left: 35px solid transparent;
+				border-right: 35px solid #8bc53f;
+				border-top: 35px solid transparent;
+				border-bottom: 35px solid #8bc53f;
 				position: absolute;
-				right: -1px;
-				top: -1px;
+				right: 35px;
+				bottom: 35px;
 			}
 		</style>
 	</section>
-
-	<!--<section class="slide">
-		<div><img src="pictures/icons/chrome.svg" width="60" height="60"></div>
-		<div><img src="pictures/icons/firefox.svg" width="60" height="60"></div>
-		<div><img src="pictures/icons/opera.svg" width="60" height="60"></div>
-		<div><img src="pictures/icons/safari.svg" width="60" height="60"></div>
-		<div><img src="pictures/icons/ie.svg" width="60" height="60"></div>
-		<div><img src="pictures/icons/edge.svg" width="60" height="60"></div>
-	</section>-->
-
-
-
-
-
-
-
-
 
 	<section class="slide">
 		<h2>Оптимизация шрифтов &ndash;</h2>
@@ -454,30 +425,35 @@
 	</section>
 
 	<section class="slide">
-		<img src="pictures/localstorage.png" alt="" style="max-width: 100%; max-height: 100%; position: relative; top: -50px;">
+		<table style="width: 100%; margin: 0 0 0 -50px">
+			<tr>
+				<td style="vertical-align: top; padding: 0">
+					<br>&nbsp;
+					<img src="pictures/localstorage.png" alt="" style="margin-top: -50px; max-width: 100%; max-height: 80%; position: relative; top: -50px;">
+					<br>&nbsp;
+				</td>
+				<td style="vertical-align: top; padding-left: 50px; padding-right: 0; font-size: 16px;">
+					<p><b>Перед отрисовкой страницы проверяем:</b></p>
+					<ol>
+						<li>поддерживается ли localstorage...</li>
+						<li>какой формат выбрать...</li>
+						<li>уже есть в кеше?</li>
+					</ol>
+					<p>Если всё OK &mdash; показываем шрифт не медля</p>
+					<br>
+
+					<p><b>При первой загрузке страницы</b></p>
+					<ol>
+						<li>проверяем доступ к localstorage...</li>
+						<li>загружаем json-файл с base64-шрифтом...</li>
+						<li>сохраняем в localstorage...</li>
+					</ol>
+					<p>Если всё OK &mdash; показываем шрифт</p>
+				</td>
+			</tr>
+		</table>
+
 	</section>
-
-	<section class="slide">
-		<h2>Перед отрисовкой страницы проверяем:</h2>
-		<ol>
-			<li>поддерживается ли localstorage...</li>
-			<li>какой формат выбрать...</li>
-			<li>уже есть в кеше?</li>
-		</ol>
-		<p>Если всё OK &mdash; показываем шрифт не медля</p>
-	</section>
-
-	<section class="slide">
-		<h2>При первой загрузке страницы</h2>
-		<ol>
-			<li>проверяем доступ к localstorage...</li>
-			<li>загружаем json-файл с base64-шрифтом...</li>
-			<li>сохраняем в localstorage...</li>
-		</ol>
-		<p>Если всё OK &mdash; показываем шрифт</p>
-	</section>
-
-
 
 	<section class="slide">
 		<h2>Localstorage</h2>
