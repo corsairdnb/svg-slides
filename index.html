@@ -355,6 +355,21 @@
 
 	<section class="slide">
 		<h2>Web Font Loader</h2>
+		<pre>
+			<code>&lt;script&gt;</code>
+			<code>	(function() {</code>
+			<code>		if (<mark>sessionStorage.fonts</mark>) {</code>
+			<code>			<span class="comment">// Add font class</span></code>
+			<code>		} else {</code>
+			<code>			<span class="comment">// Init Web Font Loader</span></code>
+			<code>		}</code>
+			<code>	})();</code>
+			<code>&lt;/script&gt;</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Web Font Loader</h2>
 		<img src="pictures/wfloader.png" alt="" style="max-width: 100%">
 	</section>
 
@@ -425,6 +440,21 @@
 	</section>
 
 	<section class="slide">
+		<h2>Localstorage</h2>
+		<b>index.html</b>
+		<pre>
+			<code>&lt;style&gt;</code>
+			<code><b>@font-face</b> {</code>
+			<code>	font-family: 'Open Sans';</code>
+			<code>	font-weight: 400;</code>
+			<code>	font-style: normal;</code>
+			<code>	src: <mark>url(base64...)</mark> format('woff2');</code>
+			<code>}</code>
+			<code>&lt;/style&gt;</code>
+		</pre>
+	</section>
+
+	<section class="slide">
 		<table style="width: 100%; margin: 0 0 0 -50px">
 			<tr>
 				<td style="vertical-align: top; padding: 0">
@@ -453,18 +483,6 @@
 			</tr>
 		</table>
 
-	</section>
-
-	<section class="slide">
-		<h2>Localstorage</h2>
-		<pre>
-			<code><b>@font-face</b> {</code>
-			<code>	font-family: 'Open Sans';</code>
-			<code>	font-weight: 400;</code>
-			<code>	font-style: normal;</code>
-			<code>	src: <mark>url(base64...)</mark> format('woff2');</code>
-			<code>}</code>
-		</pre>
 	</section>
 
 	<section class="slide">
@@ -571,7 +589,6 @@
 		</table>
 	</section>
 
-
 	<section class="slide">
 		<h2>Спасибо за внимание</h2>
 		<p>
@@ -583,6 +600,10 @@
 		<p>
 			Wrike:  &nbsp; &nbsp; &nbsp; <a href="https://www.wrike.com">www.wrike.com</a>
 		</p>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">Вопросы?</h2>
 	</section>
 
 
