@@ -185,6 +185,23 @@
 	</section>
 
 	<section class="slide">
+		<h2>font-display</h2>
+		<pre>
+			<code><b>@font-face</b> {</code>
+			<code>	font-family: 'Open Sans';</code>
+			<code>	<mark>font-display: swap;</mark></code>
+			<code>	src: url(...) format('woff2');</code>
+			<code>}</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>font-display</h2>
+		<p><code><i>auto</i> | block | swap | fallback | optional</code></p>
+		<p><a href="https://developers.google.com/web/updates/2016/02/font-display">Подробнее</a></p>
+	</section>
+
+	<section class="slide">
 		<h2>Во всех современных браузерах</h2>
 		<pre>
 			<code><b>@font-face</b> {</code>
@@ -524,11 +541,12 @@
 			<code>	<mark>insertFont(cache.value)</mark>;</code>
 			<code>}</code>
 			<code>else {</code>
-			<code>	var request = new XMLHttpRequest(), response; ...</code>
-			<code>	request.onload = function() {</code>
-			<code>		insertFont(response.value);</code>
-			<code>		<mark>window.localStorage.setItem('opensans', response)</mark>;</code>
-			<code>	}</code>
+			<code>	fetch('opensans.json')</code>
+			<code>	  .then(function(response) { return response.json() }</code>
+			<code>	  .then(function(json) {</code>
+			<code>		  insertFont(json.value);</code>
+			<code>		  <mark>window.localStorage.setItem('opensans', json.value)</mark>;</code>
+			<code>	  }</code>
 			<code>}</code>
 		</pre>
 	</section>
