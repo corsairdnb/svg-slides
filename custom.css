@@ -59,3 +59,19 @@
     right: 35px;
     bottom: 35px;
 }
+
+
+.retina-table {
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+    border-spacing: 1px !important;
+    margin: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+.retina-table td {
+    border: 1px solid #666 !important;
+    padding: 0 !important;
+    background: none !important;
+    font-size: 0 !important;
+}
