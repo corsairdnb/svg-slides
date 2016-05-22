@@ -321,7 +321,7 @@
 	</section>
 
 	<section class="slide">
-		<h2>Проверяем себя</h2>
+		<h2>Хороший SVG</h2>
 		<p>
 			good.svg &nbsp; ~<b>5.6</b> kb
 		</p>
@@ -331,7 +331,7 @@
 	</section>
 
 	<section class="slide">
-		<h2>Проверяем себя</h2>
+		<h2>Плохой SVG</h2>
 		<p>
 			bad.svg &nbsp; ~<b>220</b> kb
 		</p>
@@ -351,18 +351,49 @@
 			<li>background-image</li>
 			<li>&lt;object&gt;</li>
 			<li>inline</li>
-			<li>&lt;use&gt;</li>
 		</ul>
-		<img src="pictures/icons/android.svg" alt="" width="100">
-		<object type="image/svg+xml" data="pictures/icons/android.svg" width="100" class="xxx"></object>
-		<style>
-			.xxx * {
-				fill: red !important;
-			}
-		</style>
 	</section>
 
+	<section class="slide">
+		<h2>Интерактивность</h2>
+		<table>
+			<tr>
+				<th style="width: 40%"><strong></strong></th>
+				<th>CSS</th>
+				<th style="width: 10%">JS</th>
+				<th style="width: 10%">Анимация</th>
+			</tr>
+			<tr>
+				<td>&lt;img&gt;</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>background-image</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>&lt;object&gt;</td>
+				<td>Через внешний файл</td>
+				<td>Да</td>
+				<td>Да</td>
+			</tr>
+			<tr>
+				<td>inline</td>
+				<td>Да</td>
+				<td>Да</td>
+				<td>Да</td>
+			</tr>
+		</table>
+	</section>
 
+	<section class="slide">
+		<h2>Спрайты</h2>
+		<p>&lt;use&gt;</p>
+	</section>
 
 
 
