@@ -30,7 +30,7 @@
 	</section>
 
 	<section class="slide">
-		<h2>Image file formats</h2>
+		<h2>Image file formats usage</h2>
 		<table>
 			<tr>
 				<td>JPEG</td>
@@ -45,8 +45,8 @@
 				<td>40.4%</td>
 			</tr>
 			<tr>
-				<td><b>SVG</b></td>
-				<td><b>2.0%</b></td>
+				<td><mark><b>SVG</b></mark></td>
+				<td><mark><b>2.0%</b></mark></td>
 			</tr>
 			<tr>
 				<td>BMP</td>
@@ -62,6 +62,37 @@
 
 	<section class="slide">
 		<img src="pictures/jpeg.jpeg" alt="" class="cover">
+	</section>
+
+	<section class="slide">
+		<h2>Поддержка браузерами SVG</h2>
+		<table style="margin-top: 50px;">
+			<tr>
+				<td style="vertical-align: middle;">
+					<div><img src="pictures/icons/chrome.svg" alt="" width="55"></div>
+					<div><img src="pictures/icons/firefox.svg" alt="" width="55"></div>
+					<div><img src="pictures/icons/opera.svg" alt="" width="55"></div>
+					<div><img src="pictures/icons/safari.svg" alt="" width="55"></div>
+					<div><img src="pictures/icons/edge.svg" alt="" width="55"></div>
+				</td>
+				<td style="vertical-align: middle;">
+
+					<div style="font-size: 50px"><img src="pictures/icons/android.svg" alt="" width="55" style="vertical-align: text-bottom;"> &nbsp; 3+</div>
+					<div style="font-size: 50px"><img src="pictures/icons/ie.svg" alt="" width="55" style="vertical-align: text-bottom;"> &nbsp; 9+</div>
+				</td>
+			</tr>
+		</table>
+	</section>
+
+	<section class="slide">
+		<h2>Зачем и почему SVG?</h2>
+		<ul>
+			<li>Не зависит от разрешения и масштаба</li>
+			<li>Текстовый формат и возможность сжатия</li>
+			<li>Интерактивность через CSS / JS</li>
+			<li>Анимации, фильтры, эффекты</li>
+			<li>W3C стандарт</li>
+		</ul>
 	</section>
 
 	<section class="slide">
@@ -177,32 +208,174 @@
 		<div style="overflow:hidden;" class="large">
 			<div style="float: left; width: 50%;">
 				picture-1x.png - 100kb<br>
-				picture-2x.png - 200kb<br>
-				picture-4x.png - 400kb<br>
+				picture-2x.png - 400kb<br>
+				picture-4x.png - 1600kb<br>
 			</div>
 			<div style="float: left; width: 50%;">
 				<br>
-				picture.svg - 10kb
+				picture.svg - <mark><b>10kb</b></mark>
 			</div>
 		</div>
 	</section>
 
 	<section class="slide">
-		<h2>SVG</h2>
+		<h2 class="shout" style="font-size: 60px">Дизайнер + Верстальщик = SVG</h2>
+	</section>
+
+	<section class="slide">
+		<h2>Инструменты</h2>
+		<ul class="large">
+			<li>
+				<span><b>Illustrator</b></span> <br>
+				<span>&nbsp;Дизайн всего, что должно быть в векторе</span>
+			</li>
+			<li>
+				<span><b>Sketch</b></span> <br>
+				<span>&nbsp;Дизайн страниц</span>
+			</li>
+			<li>
+				<span><b>Avocode</b></span> <br>
+				<span>&nbsp;Передача макетов в вёрстку</span>
+			</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Бесплатные печеньки</h2>
+		<ul>
+			<li><a href="https://github.com/google/material-design-icons/">Official Google icons</a></li>
+			<li><a href="https://github.com/Templarian/MaterialDesign">Material icons</a></li>
+			<li><a href="http://www.flaticon.com/">Free vector icons</a></li>
+			<li>...</li>
+			<li><a href="https://www.google.com/webhp?q=svg+icons+free">SEARCH IN GOOGLE</a></li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<div><img src="pictures/infographic.png" alt="" width="100%"></div>
+	</section>
+
+	<section class="slide">
+		<h2>Сделай сам</h2>
+		<div style="overflow:hidden;">
+			<div style="float: left; width: 30%; padding-top: 40px;">
+				<span style="display: inline-block; border-width: 100px; border-style: solid; border-color: transparent; border-left-color: #8bc53f;"></span>
+			</div>
+			<div style="float: left; width: 70%">
+				<pre>
+					<code>.arrow {</code>
+					<code>	display: inline-block;</code>
+					<code>	border-width: 100px;</code>
+					<code>	border-style: solid;</code>
+					<code>	border-color: transparent;</code>
+					<code>	border-left-color: #8bc53f;</code>
+					<code>}</code>
+				</pre>
+			</div>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Сделай сам</h2>
+		<div style="overflow:hidden;">
+			<div style="float: left; width: 30%; padding-top: 40px;">
+				<svg width="100" height="200" viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg" id="lolo">
+					<path d="M0,0 L100,100 L0,200" fill="none" stroke="#8bc53f" stroke-width="5"></path>
+				</svg>
+			</div>
+			<div style="float: left; width: 70%">
+				<pre>
+					<code>&lt;svg width="100" height="200"</code>
+					<code> viewBox="0 0 100 200"&gt;</code>
+					<code>	</code>
+					<code>	&lt;<mark>path d="M0,0 L100,100 L0,200"</mark></code>
+					<code>	fill="none"</code>
+					<code>	stroke="#8bc53f" stroke-width="5"&gt;</code>
+					<code> </code>
+					<code>&lt;/svg&gt;</code>
+				</pre>
+			</div>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Подготовка SVG к экспорту</h2>
+		<ul>
+			<li>Удаление ненужных контуров, точек и т.п.</li>
+			<li>Упрощение до примитивов</li>
+			<li>Выравнивание по пиксельной сетке</li>
+			<li>Установка границ видимой области</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Экспорт SVG</h2>
+		<p><img src="pictures/export.png" alt="" width="100%"></p>
+	</section>
+
+	<section class="slide">
+		<h2>Проверяем себя</h2>
 		<p>
-			<img src="pictures/illustrator.png" alt="" width="130">
-			-->
-			<img src="pictures/sketch.png" alt="" width="150">
-			-->
-			<img src="pictures/avocode.png" alt="" width="130">
+			<img src="pictures/interface-plan-timetracking.svg" alt="" width="60%">
 		</p>
+	</section>
+
+	<section class="slide">
+		<h2>Проверяем себя</h2>
+		<p>
+			good.svg &nbsp; ~<b>5.6</b> kb
+		</p>
+		<p>
+			<img src="pictures/svg_code_good.png" alt="" width="80%">
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2>Проверяем себя</h2>
+		<p>
+			bad.svg &nbsp; ~<b>220</b> kb
+		</p>
+		<p>
+			<img src="pictures/svg_code_bad.png" alt="" width="80%">
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">Способы подключения</h2>
+	</section>
+
+	<section class="slide">
+		<h2>Способы подключения</h2>
+		<ul>
+			<li>&lt;img&gt;</li>
+			<li>background-image</li>
+			<li>&lt;object&gt;</li>
+			<li>inline</li>
+			<li>&lt;use&gt;</li>
+		</ul>
+		<img src="pictures/icons/android.svg" alt="" width="100">
+		<object type="image/svg+xml" data="pictures/icons/android.svg" width="100" class="xxx"></object>
+		<style>
+			.xxx * {
+				fill: red !important;
+			}
+		</style>
 	</section>
 
 
 
 
 
-
+	<section class="slide">
+		<h2>Полезные ссылки</h2>
+		<ul>
+			<li><a href="https://svgontheweb.com/ru/">Практическое руководство по SVG</a></li>
+			<li><a href="https://css-tricks.com/a-complete-guide-to-svg-fallbacks/">Фолбеки для старых браузеров</a></li>
+			<li><a href="https://github.com/jonathantneal/svg4everybody">Полифилл для внешних SVG</a></li>
+			<li><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization">Оптимизация графики</a></li>
+			<li><a href=""></a></li>
+		</ul>
+	</section>
 
 	<p class="badge">
 		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
