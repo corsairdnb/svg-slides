@@ -391,6 +391,19 @@
 	</section>
 
 	<section class="slide">
+		<h2>&lt;object&gt; или &lt;img&gt;</h2>
+		<p>Используйте для обычных встроенных изображений</p>
+		<br>
+		<h2>inline &lt;svg&gt;</h2>
+		<p>Только если нужен полный контроль</p>
+	</section>
+
+	<section class="slide">
+		<h2>Доступность SVG</h2>
+		<p>Добавляйте <code>&lt;title&gt;</code> и <code>&lt;desc&gt;</code> для встроенных изображений</p>
+	</section>
+
+	<section class="slide">
 		<h2>Спрайты</h2>
 		<p>
 			Генератор спрайтов <a href="https://github.com/jkphl/svg-sprite">SVG Sprite</a>
@@ -402,30 +415,156 @@
 	<section class="slide">
 		<h2>Виды SVG спрайтов</h2>
 		<ul>
-			<li>Классический CSS спрайт для background-image</li>
-			<li>Спрайт через <strong><code>&lt;view&gt;</code></strong> элементы</li>
-			<li>Спрайт через <strong><code>&lt;symbol&gt;</code></strong></li>
+			<li>Классический CSS (background) спрайт или через <strong><code>&lt;view&gt;</code></strong></li>
+			<li>Спрайт через <strong><code>&lt;symbol&gt;</code></strong> или <strong><code>&lt;defs&gt;</code></strong></li>
 		</ul>
 	</section>
 
 	<section class="slide">
-		<h2>Спрайт с помощью SVG view</h2>
 		<pre>
-			<code>&lt;img src="./sprite.svg#svgView(viewBox(0, 0, 32, 32))"&gt;</code>
+			<code>var config = { mode: {</code>
+			<code>	<mark>css</mark>: {</code>
+			<code>		dest: '.',</code>
+			<code>		sprite: './sprite.svg',</code>
+			<code>		render: {</code>
+			<code>			<mark>styl</mark>: {</code>
+			<code>				dest: '.'</code>
+			<code>			}</code>
+			<code>		}</code>
+			<code>	}</code>
+			<code>}};</code>
 		</pre>
-		<pre>
-			<code>&lt;img src="./sprite.svg#icon-heart-view"&gt;</code>
-		</pre>
+	</section>
 
-		<img src="pictures/sprite.svg#icon-top-report-hover" style="width: 72px; height: 72px;"/>
-		<img src="pictures/sprite.svg#svgView(viewBox(530.15 0 72 72))" style="width: 72px; height: 72px;"/>
+	<section class="slide">
+		<pre>
+			<code>gulp.src('./*.svg')</code>
+			<code>	.pipe( svgSprite(<mark>config</mark>) )</code>
+			<code>	.pipe( gulp.dest('.') );</code>
+		</pre>
+		<br>
+		<p class="large">
+			На выходе: <br>
+			<b>sprite.styl</b> - данные спрайта <br>
+			<b>sprite.svg</b> - cпрайт
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2>Классический CSS (background) спрайт</h2>
+		<pre>
+			<code>&lt;i class="icon icon-kitty"&gt;&lt;/span&gt;</code>
+		</pre>
+		<pre>
+			<code>.icon { background: url(<mark>sprite.svg</mark>) no-repeat;</code>
+			<code>.icon-kitty {</code>
+			<code>	width: 50px;</code>
+			<code>	height: 50px;</code>
+			<code>	background-size: 50px 50px;</code>
+			<code>	background-position: 0 0;</code>
+			<code>}</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Спрайт с помощью SVG &lt;view&gt;</h2>
+		<pre>
+			<code>&lt;img src="./sprite.svg<mark>#svgView(viewBox(0, 0, 50, 50))</mark>"&gt;</code>
+		</pre>
+		<pre>
+			<code>&lt;img src="./sprite.svg<mark>#icon-kitty</mark>"&gt;</code>
+		</pre>
+		<br>
+		<code>.icon-kitty {</code><br>
+		<code>&nbsp; &nbsp; background: url(sprite.svg#icon-kitty) no-repeat;</code><br>
+		<code>}</code><br>
+	</section>
+
+	<section class="slide">
+		<h2>Что внутри SVG &lt;view&gt; спрайта</h2>
+		<p>Картинка позиционируется под область просмотра</p>
+		<pre>
+			<code>&lt;<mark>view id="icon-kitty"</mark> viewBox="0 0 50 50" /&gt;</code>
+			<code>&lt;svg viewBox="0 0 50 50"</code>
+			<code>	 width="50" height="50" x="0" y="0"&gt;</code>
+			<code>	&lt;path ... /&gt;</code>
+			<code>&lt;/svg&gt;</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Кроссбраузерность SVG &lt;view&gt;</h2>
+		<p><a href="https://css-tricks.com/svg-fragment-identifiers-work/#article-header-id-5">Очень плохая</a></p>
 	</section>
 
 	<section class="slide">
 		<h2>Спрайт с помощью &lt;use&gt;</h2>
-
+		<pre>
+			<code>&lt;svg&gt;</code>
+			<code>	&lt;use xlink:href="sprite.symbol.svg#<mark>icon-kitty</mark>"&gt;&lt;/use&gt;</code>
+			<code>&lt;/svg&gt;</code>
+		</pre>
 	</section>
 
+	<section class="slide">
+		<h2>Что внутри SVG &lt;symbol&gt; спрайта</h2>
+		<p>Код каждой иконки внутри одного элемента <code>symbol</code></p>
+		<pre>
+			<code>&lt;symbol viewBox="0 0 50 50" id="<mark>icon-kitty</mark>"</code>
+			<code>	&lt;path ... /&gt;</code>
+			<code>&lt;/symbol&gt;</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Проблема CORS</h2>
+		<p>Невозможно загрузить спрайт с другого домена через &lt;use&gt;</p>
+		<pre>
+			<code>&lt;svg&gt;</code>
+			<code>	&lt;use xlink:href="<mark>http://only-same-domain.com</mark>"/&gt;</code>
+			<code>&lt;/svg&gt;</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Кроссбраузерность SVG &lt;use&gt;</h2>
+		<p>Очень хорошая, но нужен <a href="https://github.com/jonathantneal/svg4everybody">полифилл для внешних SVG</a></p>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">Оптимизация</h2>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout"><a href="https://github.com/svg/svgo">SVGO</a></h2>
+	</section>
+
+	<section class="slide">
+		<h2>SVGO</h2>
+		<ul>
+			<li>удаление переносов строк и лишних пробелов</li>
+			<li>удаление doctype</li>
+			<li>удаление XML-инструкций</li>
+			<li>удаление комментариев</li>
+			<li>удаление <code>&lt;metadata&gt;</code></li>
+			<li>удаление элементов в <code>&lt;defs&gt;</code> без <code>id</code></li>
+			<li>удаление пустых атрибутов</li>
+			<li>удаление скрытых элементов</li>
+			<li>...... и еще <b>~30</b> оптимизаций</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Итог</h2>
+		<ul>
+			<li>Старайтесь использовать SVG там, где это возможно</li>
+			<li>Оптимизируйте исходный код и способ подключения SVG</li>
+			<li>Испольльзуйте GZIP-компрессию</li>
+			<li>Делайте фолбеки</li>
+			<li>Заботьтесь о доступности</li>
+			<li>Автоматизируйте рутину</li>
+		</ul>
+	</section>
 
 	<section class="slide">
 		<h2>Полезные ссылки</h2>
@@ -434,9 +573,33 @@
 			<li><a href="https://css-tricks.com/a-complete-guide-to-svg-fallbacks/">Фолбеки для старых браузеров</a></li>
 			<li><a href="https://github.com/jonathantneal/svg4everybody">Полифилл для внешних SVG</a></li>
 			<li><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization">Оптимизация графики</a></li>
-			<li><a href=""></a></li>
+			<li><a href="https://github.com/jkphl/svg-sprite">SVG спрайты</a></li>
 		</ul>
 	</section>
+
+	<section class="slide">
+		<h2>Спасибо за внимание</h2>
+		<p>
+			Слайды: &nbsp; <a href="http://corsairdnb.github.io/svg-slides/">corsairdnb.github.io/svg-slides</a> <br>
+			&nbsp; &nbsp; &nbsp; или &nbsp; &nbsp;<a href="http://bit.ly/1quFNmW">bit.ly/1quFNmW</a>
+		</p>
+		<p>
+			VK:  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="http://vk.com/corsairdnb">vk.com/corsairdnb</a>
+		</p>
+		<p>
+			Wrike:  &nbsp; &nbsp; &nbsp; <a href="https://www.wrike.com">www.wrike.com</a>
+		</p>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">Вопросы?</h2>
+	</section>
+
+
+
+
+
+
 
 	<p class="badge">
 		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
