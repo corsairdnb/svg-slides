@@ -414,6 +414,16 @@
 	</section>
 
 	<section class="slide">
+		<h2>Base64 data-uri</h2>
+		<p class="large">Очень маленькие иконки можно кодировать в base64 и вставлять в CSS-файл</p>
+	</section>
+
+	<section class="slide">
+		<h2>Используйте CSS transform</h2>
+		<p class="large">Для масштабирования, поворота, наклона и т.п.</p>
+	</section>
+
+	<section class="slide">
 		<h2>Доступность SVG</h2>
 		<p>Добавляйте <code>&lt;title&gt;</code> и <code>&lt;desc&gt;</code> для встроенных изображений</p>
 		<p>Для <code>&lt;img&gt;</code> прописывайте <code>alt</code> и <code>title</code></p>
@@ -515,6 +525,7 @@
 
 	<section class="slide">
 		<h2>Спрайт с помощью &lt;use&gt;</h2>
+		<p>Можно разместить SVG прямо в HTML, а можно указать ссылку на внешний файл</p>
 		<pre>
 			<code>&lt;svg&gt;</code>
 			<code>	&lt;use xlink:href="sprite.symbol.svg#<mark>icon-kitty</mark>"&gt;&lt;/use&gt;</code>
@@ -524,7 +535,7 @@
 
 	<section class="slide">
 		<h2>Что внутри SVG &lt;symbol&gt; спрайта</h2>
-		<p>Код каждой иконки внутри одного элемента <code>symbol</code></p>
+		<p>Код каждой иконки внутри одного элемента <code>&lt;symbol&gt;</code></p>
 		<pre>
 			<code>&lt;symbol viewBox="0 0 50 50" id="<mark>icon-kitty</mark>"</code>
 			<code>	&lt;path ... /&gt;</code>
@@ -549,7 +560,7 @@
 
 	<section class="slide">
 		<h2>@media внутри SVG</h2>
-		<p>Медиа-выражения работают прямо внутри svg-файла, и зависят не от вьюпорта, а от текущего размера SVG</p>
+		<p>Медиа-выражения работают прямо внутри svg-файла, и зависят не от вьюпорта документа, а от текущего размера SVG</p>
 		<p>Наилучшая кроссбраузерность достигается подключением через <a href="https://timkadlec.com/2013/04/media-queries-within-svg/">&lt;object&gt; или inline</a></p>
 	</section>
 
@@ -604,19 +615,16 @@
 		<h2>Спасибо за внимание</h2>
 		<p>
 			Слайды: &nbsp; &nbsp; <a href="http://corsairdnb.github.io/svg-slides/">corsairdnb.github.io/svg-slides</a> <br>
-			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="http://bit.ly/1quFNmW">bit.ly/1quFNmW</a>
-		</p>
-		<p>
 			VK:  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="http://vk.com/corsairdnb">vk.com/corsairdnb</a>
 		</p>
 		<p>
-			Shower:  &nbsp; &nbsp; &nbsp;<a href="https://shwr.me/">shwr.me</a>
+			Wrike:  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://www.wrike.com">wrike.com</a> <br>
+			Habrahabr:  &nbsp; &nbsp; <a href="https://habrahabr.ru/company/wrike/">habrahabr.ru/company/wrike</a> <br>
+			Blog:  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="http://www.wrike.com/ru/blog/">wrike.com/ru/blog</a> <br>
+			Youtube:  &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://www.youtube.com/channel/UCu-RrZ8JmADlGZGO8d3OW5w">Wrike Tech Club</a>
 		</p>
 		<p>
-			Wrike:  &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://www.wrike.com">wrike.com</a> <br>
-			Habrahabr:  &nbsp; &nbsp; <a href="https://habrahabr.ru/company/wrike/">habrahabr.ru/company/wrike</a> <br>
-			Blog:  &nbsp; &nbsp; &nbsp; &nbsp; <a href="http://www.wrike.com/ru/blog/">wrike.com/ru/blog</a> <br>
-			Youtube:  &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://www.wrike.com">www.wrike.com</a> <br>
+			Shower:  &nbsp; &nbsp; &nbsp;<a href="https://shwr.me/">shwr.me</a>
 		</p>
 	</section>
 
