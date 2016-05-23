@@ -392,9 +392,39 @@
 
 	<section class="slide">
 		<h2>Спрайты</h2>
-		<p>&lt;use&gt;</p>
+		<p>
+			Генератор спрайтов <a href="https://github.com/jkphl/svg-sprite">SVG Sprite</a>
+		</p>
+		<p><a href="https://github.com/jkphl/svg-sprite/blob/master/docs/configuration.md">Доки по конфигурации</a></p>
+		<p><a href="https://github.com/jkphl/gulp-svg-sprite">Gulp</a> & <a href="https://github.com/jkphl/grunt-svg-sprite">Grunt</a></p>
 	</section>
 
+	<section class="slide">
+		<h2>Виды SVG спрайтов</h2>
+		<ul>
+			<li>Классический CSS спрайт для background-image</li>
+			<li>Спрайт через <strong><code>&lt;view&gt;</code></strong> элементы</li>
+			<li>Спрайт через <strong><code>&lt;symbol&gt;</code></strong></li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Спрайт с помощью SVG view</h2>
+		<pre>
+			<code>&lt;img src="./sprite.svg#svgView(viewBox(0, 0, 32, 32))"&gt;</code>
+		</pre>
+		<pre>
+			<code>&lt;img src="./sprite.svg#icon-heart-view"&gt;</code>
+		</pre>
+
+		<img src="pictures/sprite.svg#icon-top-report-hover" style="width: 72px; height: 72px;"/>
+		<img src="pictures/sprite.svg#svgView(viewBox(530.15 0 72 72))" style="width: 72px; height: 72px;"/>
+	</section>
+
+	<section class="slide">
+		<h2>Спрайт с помощью &lt;use&gt;</h2>
+
+	</section>
 
 
 	<section class="slide">
