@@ -548,6 +548,12 @@
 	</section>
 
 	<section class="slide">
+		<h2>@media внутри SVG</h2>
+		<p>Медиа-выражения работают прямо внутри svg-файла, и зависят не от вьюпорта, а от текущего размера SVG</p>
+		<p>Наилучшая кроссбраузерность достигается подключением через <a href="https://timkadlec.com/2013/04/media-queries-within-svg/">&lt;object&gt; или inline</a></p>
+	</section>
+
+	<section class="slide">
 		<h2 class="shout">Оптимизация</h2>
 	</section>
 
@@ -563,7 +569,6 @@
 			<li>удаление XML-инструкций</li>
 			<li>удаление комментариев</li>
 			<li>удаление <code>&lt;metadata&gt;</code></li>
-			<li>удаление элементов в <code>&lt;defs&gt;</code> без <code>id</code></li>
 			<li>удаление пустых атрибутов</li>
 			<li>удаление скрытых элементов</li>
 			<li>...... и еще <b>~30</b> оптимизаций</li>
@@ -575,9 +580,9 @@
 		<ul>
 			<li>Старайтесь использовать SVG там, где это возможно</li>
 			<li>Оптимизируйте исходный код и способ подключения SVG</li>
-			<li>Испольльзуйте GZIP-компрессию</li>
+			<li>Используйте GZIP-компрессию</li>
 			<li>Делайте фолбеки</li>
-			<li>Заботьтесь о доступности</li>
+			<li>Заботьтесь о доступности SVG</li>
 			<li>Автоматизируйте рутину</li>
 		</ul>
 	</section>
@@ -591,6 +596,7 @@
 			<li><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization">Оптимизация графики</a></li>
 			<li><a href="https://github.com/jkphl/svg-sprite">SVG спрайты</a></li>
 			<li><a href="https://pepelsbey.net/pres/clear-and-sharp/">Чётко и резко про пиксели</a></li>
+			<li><a href="https://design.google.com/devices/">Разрешения и размеры девайсов</a></li>
 		</ul>
 	</section>
 
