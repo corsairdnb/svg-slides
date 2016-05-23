@@ -276,26 +276,37 @@
 	</section>
 
 	<section class="slide">
-		<h2>Сделай сам</h2>
+		<h2>Сделай сам (тыжпрограммист)</h2>
 		<div style="overflow:hidden;">
-			<div style="float: left; width: 30%; padding-top: 40px;">
+			<div style="float: left; width: 29%; padding-top: 40px;">
 				<svg width="100" height="200" viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg" id="lolo">
 					<path d="M0,0 L100,100 L0,200" fill="none" stroke="#8bc53f" stroke-width="5"></path>
 				</svg>
 			</div>
-			<div style="float: left; width: 70%">
+			<div style="float: left; width: 71%">
 				<pre>
 					<code>&lt;svg width="100" height="200"</code>
 					<code> viewBox="0 0 100 200"&gt;</code>
 					<code>	</code>
 					<code>	&lt;<mark>path d="M0,0 L100,100 L0,200"</mark></code>
 					<code>	fill="none"</code>
-					<code>	stroke="#8bc53f" stroke-width="5"&gt;</code>
+					<code>	stroke="#8bc53f" stroke-width="5"/&gt;</code>
 					<code> </code>
 					<code>&lt;/svg&gt;</code>
 				</pre>
 			</div>
 		</div>
+	</section>
+
+	<section class="slide">
+		<h2>SVG &lt;path&gt;</h2>
+		<pre>
+			<code>&lt;path d="</code>
+			<code>	M0,0		<span class="comment">// <mark>Move</mark> to x=0 y=0</span></code>
+			<code>	L100,100	<span class="comment">// <mark>Line</mark> to x=100 y=100</span></code>
+			<code>	L0,200		<span class="comment">// <mark>Line</mark> to x=0 y=200</span></code>
+			<code>"/&gt;</code>
+		</pre>
 	</section>
 
 	<section class="slide">
@@ -351,6 +362,10 @@
 			<li>background-image</li>
 			<li>&lt;object&gt;</li>
 			<li>inline</li>
+			<li>sprite</li>
+			<li style="text-decoration: line-through;">&lt;iframe&gt;</li>
+			<li style="text-decoration: line-through;">&lt;object&gt;</li>
+			<li style="text-decoration: line-through;">iconic font</li>
 		</ul>
 	</section>
 
@@ -401,6 +416,7 @@
 	<section class="slide">
 		<h2>Доступность SVG</h2>
 		<p>Добавляйте <code>&lt;title&gt;</code> и <code>&lt;desc&gt;</code> для встроенных изображений</p>
+		<p>Для <code>&lt;img&gt;</code> прописывайте <code>alt</code> и <code>title</code></p>
 	</section>
 
 	<section class="slide">
@@ -518,10 +534,10 @@
 
 	<section class="slide">
 		<h2>Проблема CORS</h2>
-		<p>Невозможно загрузить спрайт с другого домена через &lt;use&gt;</p>
+		<p>Невозможно загрузить спрайт с другого домена через <code>&lt;use&gt;</code></p>
 		<pre>
 			<code>&lt;svg&gt;</code>
-			<code>	&lt;use xlink:href="<mark>http://only-same-domain.com</mark>"/&gt;</code>
+			<code>	&lt;use xlink:href="<mark>//same-domain.com/sprite.svg</mark>"/&gt;</code>
 			<code>&lt;/svg&gt;</code>
 		</pre>
 	</section>
@@ -574,20 +590,24 @@
 			<li><a href="https://github.com/jonathantneal/svg4everybody">Полифилл для внешних SVG</a></li>
 			<li><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization">Оптимизация графики</a></li>
 			<li><a href="https://github.com/jkphl/svg-sprite">SVG спрайты</a></li>
+			<li><a href="https://pepelsbey.net/pres/clear-and-sharp/">Чётко и резко про пиксели</a></li>
 		</ul>
 	</section>
 
 	<section class="slide">
 		<h2>Спасибо за внимание</h2>
 		<p>
-			Слайды: &nbsp; <a href="http://corsairdnb.github.io/svg-slides/">corsairdnb.github.io/svg-slides</a> <br>
-			&nbsp; &nbsp; &nbsp; или &nbsp; &nbsp;<a href="http://bit.ly/1quFNmW">bit.ly/1quFNmW</a>
+			Слайды: &nbsp; &nbsp; <a href="http://corsairdnb.github.io/svg-slides/">corsairdnb.github.io/svg-slides</a> <br>
+			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="http://bit.ly/1quFNmW">bit.ly/1quFNmW</a>
 		</p>
 		<p>
-			VK:  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="http://vk.com/corsairdnb">vk.com/corsairdnb</a>
+			VK:  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="http://vk.com/corsairdnb">vk.com/corsairdnb</a>
 		</p>
 		<p>
-			Wrike:  &nbsp; &nbsp; &nbsp; <a href="https://www.wrike.com">www.wrike.com</a>
+			Shower:  &nbsp; &nbsp; &nbsp;<a href="https://shwr.me/">shwr.me</a>
+		</p>
+		<p>
+			Wrike:  &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://www.wrike.com">www.wrike.com</a>
 		</p>
 	</section>
 
