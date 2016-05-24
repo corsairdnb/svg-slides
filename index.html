@@ -314,6 +314,7 @@
 		<ul>
 			<li>Удаление ненужных контуров, точек и т.п.</li>
 			<li>Упрощение до примитивов</li>
+			<li>Заливка или обводка?</li>
 			<li>Выравнивание по пиксельной сетке</li>
 			<li>Установка границ видимой области</li>
 		</ul>
@@ -453,7 +454,7 @@
 			<code>		dest: '.',</code>
 			<code>		sprite: './sprite.svg',</code>
 			<code>		render: {</code>
-			<code>			<mark>styl</mark>: {</code>
+			<code>			<mark>less</mark>: {</code>
 			<code>				dest: '.'</code>
 			<code>			}</code>
 			<code>		}</code>
@@ -471,7 +472,7 @@
 		<br>
 		<p class="large">
 			На выходе: <br>
-			<b>sprite.styl</b> - данные спрайта <br>
+			<b>sprite.less</b> - данные спрайта <br>
 			<b>sprite.svg</b> - cпрайт
 		</p>
 	</section>
@@ -511,8 +512,7 @@
 		<p>Картинка позиционируется под область просмотра</p>
 		<pre>
 			<code>&lt;<mark>view id="icon-kitty"</mark> viewBox="0 0 50 50" /&gt;</code>
-			<code>&lt;svg viewBox="0 0 50 50"</code>
-			<code>	 width="50" height="50" x="0" y="0"&gt;</code>
+			<code>&lt;svg width="50" height="50" x="0" y="0"&gt;</code>
 			<code>	&lt;path ... /&gt;</code>
 			<code>&lt;/svg&gt;</code>
 		</pre>
